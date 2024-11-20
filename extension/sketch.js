@@ -14,11 +14,11 @@ function setup() {
   blendMode(DARKEST);
   // frameRate(1);
   
-  
+  background(220);
 }
 
 function draw() {
-  background(220);
+  
 
   if (mouseAct) {
     // fill(map(seconds, 0, 60, 180, 0), 100, 100, 1);
@@ -26,12 +26,12 @@ function draw() {
     // ellipse(mouseX, mouseY, seconds*10);
     // fill(map(seconds, 0, 60, 180, 0), 100, 100, 1);
     // stroke(map(seconds, 0, 60, 180, 0), 100, 100);
-    stroke(map(seconds, 0, 60, 180, 0), 100, 100, 1);
+    stroke(map(seconds, 0, 60, 180, 0), 100, 100, 10);
     noFill();
     strokeWeight(map(seconds, 0, 60, 10,5));
     ellipse(mouseX, mouseY, seconds*10);
 
-
+    // ellipse.mouseOver(mouseInfo);
 
     
     if (int(millis() / 100) % 10 != milliseconds) {
@@ -50,21 +50,25 @@ function draw() {
 
   fill(0, 0, 0, 255);
   noStroke();
-  text(`${hrs}:${minutes}:${seconds}:${milliseconds}`, 500, 500);
-  text(`x:${pmouseX-mouseX}`, 500,600);
-  text(`y:${pmouseY-mouseY}`, 500,700);
+  // text(`${hrs}:${minutes}:${seconds}:${milliseconds}`, 500, 500);
+  // text(`x:${pmouseX-mouseX}`, 500,600);
+  // text(`y:${pmouseY-mouseY}`, 500,700);
+  textAlign(CENTER);
+  text('click to learn how much time has elapsed @ cursor location', windowWidth/2, windowHeight/2);
   // ellipse(mouseX,mouseY,10);
 }
 
-// function mouseClicked() {
-//   if (mouseAct == false) {
-//     starter = true;
-//   }
-//   if (mouseAct == true) {
-//     starter = false;
-//   }
-//   mouseAct = starter; 
-// }
+function mouseClicked() {
+  // if (mouseAct == false) {
+  //   starter = true;
+  // }
+  // if (mouseAct == true) {
+  //   starter = false;
+  // }
+  // mouseAct = starter; 
+  fill('red');
+  text(`${hrs} hours ${minutes} minutes ${seconds} seconds spent here`, windowWidth/2, mouseY+10);
+}
 
 function mouseMoved(){
   milliseconds = 0;
@@ -72,6 +76,10 @@ function mouseMoved(){
   minutes = 0;
   hrs = 0;
 }
+
+// function mouseInfo(){
+//   text(`${seconds}seconds`, mouseX+10, mouseY+10);
+// }
 
 
 // Stopwatch p5.js demo by MSingh10 https://editor.p5js.org/MSingh10/sketches/JyeMsf9Wk
