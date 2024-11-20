@@ -26,7 +26,7 @@ function draw() {
     // ellipse(mouseX, mouseY, seconds*10);
     // fill(map(seconds, 0, 60, 180, 0), 100, 100, 1);
     // stroke(map(seconds, 0, 60, 180, 0), 100, 100);
-    stroke(map(seconds, 0, 60, 180, 0), 100, 100, 10);
+    stroke(map(seconds, 0, 60, 180, 0), 100, 100, 1);
     noFill();
     strokeWeight(map(seconds, 0, 60, 10,5));
     ellipse(mouseX, mouseY, seconds*10);
